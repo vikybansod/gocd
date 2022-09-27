@@ -1,5 +1,9 @@
 #!/usr/bin/env groovy
 
-def call(String name = 'human') {
-  echo "Hello, ${name}."
+def tfinit(String name = 'human') {
+  echo "Hello, ${name}, from terraform init."
+}
+
+def tfplan(String name = 'human') {
+  echo "Hello, ${name}, from terraform inits."
 }
