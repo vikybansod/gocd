@@ -26,7 +26,5 @@ pipelines:
             timeout: 0
             tasks:
             - exec:
-                arguments:
-                - pwd
-                command: /bin/bash
+                command: pwd
                 run_if: passed
