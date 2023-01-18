@@ -11,7 +11,7 @@ pipelines:
         username: vikybansod
         shallow_clone: false
         auto_update: true
-        branch: main
+        branch: master
         encrypted_password: AES:JRw/j1bmefHB2rHRhWVong==:XfuK02n9OVGztn4PiWE5Ew==
     stages:
     - stage1:
@@ -39,7 +39,7 @@ pipelines:
         username: vikybansod
         shallow_clone: false
         auto_update: true
-        branch: main
+        branch: master
         encrypted_password: AES:JRw/j1bmefHB2rHRhWVong==:XfuK02n9OVGztn4PiWE5Ew==
     stages:
     - stage1:
