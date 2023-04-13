@@ -33,11 +33,10 @@ pipelines:
       git:
         git: https://github.com/vikybansod/gocd.git
         branch: main
-      materials:
-        p1:
-          pipeline: p1
-          stage: stage1
-          name: p1
+      p1:
+        pipeline: p1
+        stage: stage1
+        name: p1
     stages:
     - stage1:
         fetch_materials: true
