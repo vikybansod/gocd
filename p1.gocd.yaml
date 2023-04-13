@@ -9,9 +9,6 @@ pipelines:
       git:
         git: https://github.com/vikybansod/gocd.git
         branch: main
-        whitelist:
-         - "*.yaml"
-         - "**/*.yaml"
     stages:
     - stage1:
         fetch_materials: true
