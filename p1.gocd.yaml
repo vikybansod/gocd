@@ -9,6 +9,9 @@ pipelines:
       git:
         git: https://github.com/vikybansod/gocd.git
         branch: main
+        whitelist:
+         - "*.yaml"
+         - "**/*.yaml"
     stages:
     - stage1:
         fetch_materials: true
@@ -32,6 +35,7 @@ pipelines:
     materials:
       git:
         git: https://github.com/vikybansod/gocd.git
+        branch: main
       materials:
         p1:
           pipeline: p1
