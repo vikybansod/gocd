@@ -55,6 +55,23 @@ pipelines:
                   - -c
                   - echo "test"
                 run_if: passed
+    - stage2:
+        fetch_materials: true
+        keep_artifacts: false
+        clean_workspace: false
+        approval:
+          type: success
+          allow_only_on_success: false
+        jobs:
+          job1:
+            timeout: 0
+            tasks:
+            - exec:
+                command: bash
+                arguments:
+                  - -c
+                  - echo "test"
+                run_if: passed
   p2_dev:
     group: defaultGroup
     label_template: ${COUNT}
@@ -66,7 +83,7 @@ pipelines:
         branch: master
       p1:
         pipeline: p1
-        stage: stage1
+        stage: stage2
         name: p1
     stages:
     - stage1:
@@ -85,4 +102,35 @@ pipelines:
                 arguments:
                   - -c
                   - echo "test"
-                run_if: passed  
+                run_if: passed
+  p2_qa:
+    group: defaultGroup
+    label_template: ${COUNT}
+    lock_behavior: none
+    display_order: -1
+    materials:
+      git:
+        git: https://github.com/vikybansod/gocd.git
+        branch: master
+      p2_dev:
+        pipeline: p2_dev
+        stage: stage1
+        name: p2_dev
+    stages:
+    - stage1:
+        fetch_materials: true
+        keep_artifacts: false
+        clean_workspace: false
+        approval:
+          type: success
+          allow_only_on_success: false
+        jobs:
+          job1:
+            timeout: 0
+            tasks:
+            - exec:
+                command: bash
+                arguments:
+                  - -c
+                  - echo "test"
+                run_if: passed    
