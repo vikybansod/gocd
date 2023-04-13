@@ -1,0 +1,58 @@
+format_version: 10
+pipelines:
+  p1:
+    group: defaultGroup
+    label_template: ${COUNT}
+    lock_behavior: none
+    display_order: -1
+    materials:
+      git-b6ab808:
+        git: https://github.com/vikybansod/gocd.git
+        username: vikybansod
+        shallow_clone: false
+        auto_update: true
+        branch: master
+        encrypted_password: AES:JRw/j1bmefHB2rHRhWVong==:XfuK02n9OVGztn4PiWE5Ew==
+    stages:
+    - stage1:
+        fetch_materials: true
+        keep_artifacts: false
+        clean_workspace: false
+        approval:
+          type: success
+          allow_only_on_success: false
+        jobs:
+          job1:
+            timeout: 0
+            tasks:
+            - exec:
+                command: pwd
+                run_if: passed
+  p1_dev:
+    group: defaultGroup
+    label_template: ${COUNT}
+    lock_behavior: none
+    display_order: -1
+    materials:
+      git-b6ab808:
+        git: https://github.com/vikybansod/gocd.git
+        username: vikybansod
+        shallow_clone: false
+        auto_update: true
+        branch: master
+        encrypted_password: AES:JRw/j1bmefHB2rHRhWVong==:XfuK02n9OVGztn4PiWE5Ew==
+    stages:
+    - stage1:
+        fetch_materials: true
+        keep_artifacts: false
+        clean_workspace: false
+        approval:
+          type: success
+          allow_only_on_success: false
+        jobs:
+          job1:
+            timeout: 0
+            tasks:
+            - exec:
+                command: kubectl get pods -n thanos
+                run_if: passed  
