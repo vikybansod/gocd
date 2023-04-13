@@ -5,10 +5,8 @@ pipelines:
     label_template: "${git[:8]}"
     locking: off
     materials:
-      git:
-        git: git@github.com:tomzo/gocd-yaml-config-plugin.git
-        blacklist:
-          - README.md
+      git: https://github.com/vikybansod/gocd.git
+      branch: main
     stages:
       - build:
           clean_workspace: true
