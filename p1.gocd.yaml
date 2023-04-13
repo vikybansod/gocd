@@ -24,21 +24,7 @@ pipelines:
             - exec:
                 command: pwd
                 run_if: passed
-  p1_dev:
-    group: defaultGroup
-    label_template: ${COUNT}
-    lock_behavior: none
-    display_order: -1
-    materials:
-      git:
-        git: https://github.com/vikybansod/gocd.git
-        branch: main
-      p1:
-        pipeline: p1
-        stage: stage1
-        name: p1
-    stages:
-    - stage1:
+    - stage2:
         fetch_materials: true
         keep_artifacts: false
         clean_workspace: false
@@ -55,7 +41,21 @@ pipelines:
                   - -c
                   - echo "test"
                 run_if: passed
-    - stage2:
+  p1_dev:
+    group: defaultGroup
+    label_template: ${COUNT}
+    lock_behavior: none
+    display_order: -1
+    materials:
+      git:
+        git: https://github.com/vikybansod/gocd.git
+        branch: main
+      p1:
+        pipeline: p1
+        stage: stage1
+        name: p1
+    stages:
+    - stage1:
         fetch_materials: true
         keep_artifacts: false
         clean_workspace: false
