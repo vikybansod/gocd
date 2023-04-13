@@ -5,8 +5,9 @@ pipelines:
     label_template: "${git[:8]}"
     locking: off
     materials:
-      git: https://github.com/vikybansod/gocd.git
-      branch: main
+      git:
+        git: https://github.com/vikybansod/gocd.git
+        branch: main
     stages:
       - build:
           clean_workspace: true
