@@ -52,7 +52,7 @@ pipelines:
         branch: main
       p1:
         pipeline: p1
-        stage: stage1
+        stage: stage2
         name: p1
     stages:
     - stage1:
